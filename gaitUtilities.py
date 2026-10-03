@@ -4,6 +4,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+def selectGroup():
+    print()
+    groups = ['Group1', 'Group2', 'Group3']
+    for i, name in enumerate(groups, 1):
+        print(f"\t{i}. {name}")
+    selection = input('\nPlease enter the NUMBER of the Group you would like to load: ').rstrip()
+    selected_group = ''
+    
+    if selection.isdigit():
+        selection = int(selection)
+        if 1 <= selection <= len(groups):
+            selected_group = groups[selection - 1]
+            print('\nYou selected ' + selected_group)
+        else:
+            print(str(selection) + ' is not a valid selection.')
+    else:
+        print('Please select a number.')
+    return selected_group
+
 def selectExcelSheet(fname):
     xls = pd.ExcelFile(fname)
     print("Available sheets in " + fname  + ":")
