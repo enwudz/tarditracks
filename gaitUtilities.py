@@ -179,7 +179,7 @@ def compareKinematics(kinematics_dfs):
         sns.stripplot(plot_data, ax=ax, color='k')
         ax.set_ylabel(col, fontsize=14)
         xlabs = [x.replace(' ','\n') for x in xlabs]
-        ax.set_xticks([0,1,2], xlabs, fontsize=14)
+        ax.set_xticks(np.arange(len(kinematics_dfs.keys())), xlabs, fontsize=14)
         if 'duration' in col:
             ax.set_ylabel(col + ' (sec)', fontsize=14)
     
@@ -205,7 +205,7 @@ def dutyContraScatter(kinematics_dfs, kde=False):
         ax.scatter(single_side_proportions, duty_factors, s=15, c=gait_colors[treatment])
         ax.plot(0.05,i,'o',markersize=5,color=gait_colors[treatment])
         ax.text(0.1, i-0.01, treatment)
-        i = i-0.05
+        i = i-0.04
          
     ax.set_xlabel('Contralateral Phase Offset', fontsize=14)
     ax.set_ylabel('Duty Factor', fontsize=14)
